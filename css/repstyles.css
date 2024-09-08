@@ -1,0 +1,105 @@
+/* Estilos del contenido del modal */
+.rep-modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinea el contenido a la izquierda */
+    /* padding: 20px; 
+    width: 80%;  */
+    max-width: 600px; /* Limitar el ancho máximo del modal */
+}
+
+/* Estilo para los selectores de fecha */
+.rep-datepickers {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+/* Ancho de los campos de fecha */
+#rep-startDate,
+#rep-endDate {
+    width: 120px;
+}
+
+/* Estilo para el grupo de radio buttons */
+.rep-radio-group,
+.meal-select-container {
+    display: flex;
+    flex-direction: column; /* Coloca la etiqueta encima de los radio buttons */
+    align-items: flex-start; /* Alinea los elementos al inicio del contenedor */
+    margin-bottom: 20px;
+}
+
+.rep-radio-group p,
+.meal-select-container p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.rep-radio-options,
+.meal-select-options {
+    display: flex;
+    gap: 15px; /* Espacio entre los radio buttons */
+    align-items: center; /* Alinea verticalmente los radio buttons y sus etiquetas */
+}
+
+.rep-radio-group label,
+.meal-select-container label {
+    margin-right: 15px; /* Espacio entre las etiquetas de los radio buttons */
+}
+
+.rep-radio-group input[type="radio"],
+.meal-select-container input[type="radio"] {
+    margin-right: 5px; /* Espacio entre el radio button y la etiqueta */
+}
+
+/* Estilo para el grupo de botones */
+.rep-button-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center; /* Centra horizontalmente los botones */
+    margin-top: 20px;
+    width: 100%;
+}
+
+/* Estilo de los botones */
+.rep-button-group button {
+    background-color: #003366; /* Fondo azul oscuro */
+    color: white; /* Texto blanco */
+    border: none;
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Cambiar el color de fondo y el texto al pasar el ratón por encima */
+.rep-button-group button:hover {
+    background-color: #002244;
+}
+
+/* Estilos para el diálogo */
+.ui-dialog {
+    border-radius: 10px; /* Bordes redondeados del diálogo */
+}
+
+/* Estilos para la barra de título del diálogo */
+.ui-dialog-titlebar {
+    background-color: darkblue; /* Fondo del título */
+    color: white; /* Color del texto del título */
+    text-align: center; /* Centrar horizontalmente el texto del título */
+}
+
+/* Estilo del texto del título */
+.ui-dialog-title {
+    font-family: 'Arial', sans-serif; /* Tipo de letra */
+    font-size: 20px; /* Tamaño de letra */
+    font-weight: bold; /* Negrita */
+    color: white; /* Color del texto del título */
+}
+
+/* Ocultar el botón de cerrar */
+.ui-dialog-titlebar-close {
+    display: none; /* Ocultar la X de cerrar */
+}

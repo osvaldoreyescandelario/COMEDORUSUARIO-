@@ -1,0 +1,170 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.Menumodal {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Fijo */
+    z-index: 1; /* Encima */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Alto completo */
+    overflow: auto; /* Habilita el desplazamiento si es necesario */
+    background-color: rgb(0, 0, 0); /* Color de fondo */
+    background-color: rgba(0, 0, 0, 0.4); /* Fondo negro con opacidad */
+}
+
+.Menumodal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% desde la parte superior y centrado */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Ancho del contenedor .modal-content */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+.Menumodal-header {
+    background-color: white; /* Color de fondo */
+    color: rgb(2, 2, 64); /* Color del texto */
+    text-align: center; /* Centrar el texto */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 10px 10px 0 0; /* Bordes redondeados en la parte superior */
+}
+
+.Menumodal-header h2 {
+    margin: 0;
+}
+
+/* Estilos específicos para el botón de cerrar en el modal */
+.Menumodal .close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.Menumodal .close:hover,
+.Menumodal .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.Menucontrols-container {
+    width: 100%; /* Ancho del contenedor */
+    display: flex; /* Usar flexbox para alinear los elementos */
+    align-items: center; /* Alinear verticalmente al centro */
+    margin-top: 10px; /* Espacio superior */
+}
+
+.Menucontrols-container label {
+    margin-right: 5px; /* Espacio a la derecha de la etiqueta */
+}
+
+.Menucontrols-container select {
+    margin-left: 5px; /* Espacio pequeño a la izquierda del selector */
+}
+
+.Menucontrols-container img {
+    margin: 0px 10px; /* Espacio a los lados de la imagen */
+    height: 40px; /* Mantiene la proporción de la imagen */
+}
+
+.Menubutton-container {
+    display: flex; /* Usar flexbox para alinear los botones */
+    align-items: center; /* Alinear verticalmente al centro */
+    margin-left: auto; /* Empujar el contenedor de botones hacia la derecha */
+}
+
+.Menubutton-container button {
+    margin-left: 10px; /* Espacio entre los botones */
+}
+
+/* Estilos específicos para la tabla en el modal */
+.Menumodal table {
+    width: 100%; /* Ancho de la tabla */
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.Menumodal th, .Menumodal td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: right; /* Alinear a la derecha las celdas */
+}
+
+.Menumodal th:first-child, .Menumodal td:first-child {
+    text-align: left; /* Alinear a la izquierda las celdas de la primera columna */
+}
+
+.Menumodal th {
+    background-color: #003366; /* Azul oscuro */
+    color: white; /* Texto blanco */
+    text-align: center; /* Centrar los títulos de los encabezados */
+}
+
+.Menumodal td {
+    border-radius: 5px; /* Bordes redondeados en las celdas */
+}
+
+/* Establecer el ancho de las columnas 2 a 7 */
+.Menumodal th:nth-child(2), .Menumodal td:nth-child(2),
+.Menumodal th:nth-child(3), .Menumodal td:nth-child(3),
+.Menumodal th:nth-child(4), .Menumodal td:nth-child(4),
+.Menumodal th:nth-child(5), .Menumodal td:nth-child(5),
+.Menumodal th:nth-child(6), .Menumodal td:nth-child(6),
+.Menumodal th:nth-child(7), .Menumodal td:nth-child(7) {
+    width: 100px; /* Ajusta este valor según sea necesario */
+}
+
+.Menupagination {
+    margin-top: 10px;
+    text-align: center;
+}
+/* Estilos específicos para los botones en el modal */
+.Menumodal .Menubutton-container button {
+    margin-left: 10px; /* Espacio entre los botones */
+    background-color: #003366; /* Azul oscuro */
+    color: white; /* Texto blanco */
+    border: none; /* Sin borde */
+    padding: 10px 15px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+
+.Menumodal .Menubutton-container button:hover {
+    background-color: #005580; /* Color más claro al pasar el mouse */
+}
+
+/* Estilos para el botón deshabilitado en el modal */
+.Menumodal .Menubutton-container button:disabled {
+    background-color: #cccccc; /* Color gris para el fondo */
+    color: #666666; /* Color gris para el texto */
+    cursor: not-allowed; /* Cambia el cursor a no permitido */
+    opacity: 0.6; /* Reduce la opacidad para indicar que está deshabilitado */
+}
+
+.Menupagination button {
+    margin-left: 10px; /* Espacio entre los botones */
+    background-color: #003366; /* Azul oscuro */
+    color: white; /* Texto blanco */
+    border: none; /* Sin borde */
+    padding: 10px 15px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+
+.Menupagination button:hover {
+    background-color: #005580; /* Color más claro al pasar el mouse */
+}
+
+.Menumodal th:first-child {
+    border-bottom: none; /* Elimina la línea divisoria en la parte inferior */
+}
+
+.Menumodal th:first-child {
+    border-bottom: 1px solid transparent; /* Hace que la línea divisoria sea transparente */
+    text-align: center;
+}

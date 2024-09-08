@@ -1,0 +1,235 @@
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Evitar scroll */
+  background: url('/img/comedor.jpg') no-repeat center center fixed;
+  background-size: 75%;
+}
+
+header {
+  background-color: white;
+  padding: 10px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* 3 columnas iguales */
+  align-items: center; /* Centrar verticalmente */
+  border-bottom: 5px groove darkgray; /* #002c5a */
+}
+
+.logo-container {
+  justify-self: start; /* Alinear a la izquierda */
+}
+
+.logo {
+  height: 80px; /* Altura del logo */
+  width: auto; /* Mantener la proporción */
+}
+
+.title-container {
+  text-align: center; /* Centrar el texto */
+}
+
+.title-container h1 {
+  color: #002c5a; /* Azul */
+  font-size: 1.5em;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Sombra alargada */
+}
+
+.login-container {
+  justify-self: end; /* Alinear a la derecha */
+}
+
+.buttons-container {
+  display: flex; /* Usar flexbox */
+  justify-content: space-between; /* Espacio entre grupos de botones */
+  grid-column: span 3; /* Ocupa las 3 columnas */
+  padding: 10px 0; /* Espaciado vertical */
+}
+
+.left-buttons, .right-buttons, .year-selector {
+  display: flex; /* Flexbox para los grupos de botones */
+  align-items: center; /* Alinear verticalmente en el centro */
+}
+
+.left-buttons {
+  justify-content: flex-start; /* Alinear a la izquierda */
+}
+
+.year-selector {
+  justify-content: center; /* Centrar el spinbox */
+  font-weight: bold; /* Hacer el texto en negrita */
+  color: #002c5a; /* Azul oscuro */
+}
+
+.right-buttons {
+  justify-content: flex-end; /* Alinear a la derecha */
+}
+
+.open-calendar-btn, .login-btn {
+  background-color: #002c5a;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-right: 10px; /* Margen entre botones */
+}
+
+.open-calendar-btn:hover, .login-btn:hover {
+  background-color: #0047ab;
+}
+
+.modal {
+  display: none; /* Ocultar por defecto */
+  position: fixed;
+  z-index: 1000; /* Mayor que el login modal */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto; /* Ajuste para centrado vertical */
+  padding: 20px;
+  border: 1px solid #888;
+  width: fit-content; /* Ancho ajustado al contenido */
+  max-width: 100%; /* Ancho máximo del modal */
+}
+
+.modal-footer {
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  justify-content: center; /* Centrar horizontalmente */
+}
+
+.modal-footer .modal-btn {
+  background-color: #002c5a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin: 0 5px; /* Margen entre botones */
+}
+
+.modal-footer .modal-btn:hover {
+  background-color: #0047ab;
+}
+
+#calendar {
+  width: 100%; /* Ajustar ancho del calendario al 100% del modal */
+}
+
+/* Resto de estilos para el calendario */
+.modal-header {
+  background-color: #002c5a;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.modal-btn.disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+#calendar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.month {
+  border: 5px solid #add8e6;
+  padding: 10px;
+}
+
+.month-name {
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.weekday {
+  text-align: center;
+  font-weight: bold;
+}
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.day {
+  text-align: center;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.selected {
+  background-color: red;
+}
+
+.no-modify {
+  background-color: #add8e6; /* Color para días no modificables */
+}
+
+.blocked {
+  pointer-events: none; /* Deshabilita los eventos de clic */
+}
+
+.no-number {
+  visibility: hidden; /* Ocultar días no válidos */
+}
+
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.marquee {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 15s linear  infinite;
+}
+
+@keyframes marquee {
+  from {
+      transform: translateX(100%);
+  }
+  to {
+      transform: translateX(-100%);
+  }
+}

@@ -1,0 +1,175 @@
+body.users-modal-open {
+    overflow: hidden; /* Desactiva el scroll en la ventana principal */
+}
+
+.users-modal {
+    display: none; /* Ocultar por defecto */
+    position: fixed; /* Queda en la pantalla */
+    z-index: 1; /* En la parte superior */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Alto completo */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo negro con opacidad */
+}
+
+.users-modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* 5% desde arriba y centrado */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Ancho */
+    max-height: 90vh; /* Limitar la altura del modal a un 90% de la altura de la ventana */
+    overflow: hidden; /* Ocultar el overflow */
+}
+
+.users-modal-titulo {
+    color: white;
+    background-color: #003366; /* Azul oscuro */
+    text-align: center;
+    padding: 10px;
+    margin: -20px -20px 20px -20px; /* Para que el fondo azul se extienda */
+    height: 50px; /* Altura del título */
+    line-height: 50px; /* Centra verticalmente el texto dentro del título */
+}
+
+.users-modal-titulo h2 {
+    margin: 0; /* Eliminar margen predeterminado del título */
+}
+
+.users-modal-body {
+    max-height: calc(90vh - 150px); /* Ajustar para permitir más espacio para el contenido */
+    overflow-y: auto; /* Scroll solo en el cuerpo del modal */
+}
+
+.users-input-container {
+    display: flex;
+    justify-content: flex-start; /* Alinear a la izquierda */
+    margin-bottom: 10px;
+}
+
+.users-input-solapin {
+    width: 50px; /* Ancho para el input de Solapín */
+    height: 30px; /* Ajustar la altura para mayor visibilidad */
+    margin-right: 10px; /* Margen derecho para el input de Solapín */
+}
+
+.users-input-nombre {
+    width: 200px; /* Ancho para el input de Nombre */
+    height: 30px; /* Ajustar la altura para mayor visibilidad */
+    margin-right: 10px; /* Margen derecho para el input de Nombre */
+}
+
+.users-input-contrasena {
+    width: 80px; /* Ancho para el input de Contraseña */
+    height: 30px; /* Ajustar la altura para mayor visibilidad */
+    margin-right: 10px; /* Margen derecho para el input de Contraseña */
+}
+
+.users-input-rol {
+    width: 100px; /* Ancho para el select de Rol */
+    height: 40px; /* Ajustar la altura para mayor visibilidad */
+    margin-right: 10px; /* Margen derecho para el select de Rol */
+}
+
+.checkbox-container {
+    display: flex;
+    flex-direction: column; /* Coloca la etiqueta encima del checkbox */
+    margin-top: 0px; /* Ajusta este valor para cambiar la separación con el último input */
+}
+
+.checkbox-container label {
+    margin-bottom: 2px; /* Espacio entre la etiqueta y el checkbox */
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-top: 1px; /* Ajusta este valor para cambiar la separación entre el checkbox y su etiqueta */
+}
+
+.users-input-container input,
+.users-input-container select {
+    padding: 5px; /* Ajustar el padding para que se vea mejor */
+    border: 1px solid #ccc; /* Borde para los inputs */
+    border-radius: 4px; /* Bordes redondeados */
+}
+
+.users-input-container button {
+    padding: 10px 20px;
+}
+
+.usersbutton-container {
+    display: flex; /* Usar flexbox para alinear los botones */
+    justify-content: flex-end; /* Alinear los botones a la derecha */
+    margin-top: 0px; /* Espacio por encima de los botones */
+}
+
+#btnExcel {
+    width: 70px; /* Ancho específico para el botón PDF */
+    height: 40px; /* Alto específico para el botón PDF */
+    background-color: darkblue; /* Color de fondo para el botón PDF */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 10px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+    margin-left: 70px;;
+    margin-right: 5px; /* Espacio a la derecha del botón PDF */
+    padding: 0; /* Eliminar padding para controlar el tamaño del botón */
+}
+
+#btnModificar {
+    width: 70px; /* Ancho específico para el botón Modificar */
+    height: 40px; /* Alto específico para el botón Modificar */
+    background-color: darkblue; /* Color de fondo para el botón Modificar */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 10px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+    margin-right: 5px; /* Espacio a la derecha del botón Modificar */
+    padding: 0; /* Eliminar padding para controlar el tamaño del botón */
+}
+
+#btnCerrar {
+    width: 70px; /* Ancho específico para el botón Cerrar */
+    height: 40px; /* Alto específico para el botón Cerrar */
+    background-color: darkblue; /* Color de fondo para el botón Cerrar */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 10px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+    /* No se necesita margen derecho aquí si es el último botón */
+    padding: 0; /* Eliminar padding para controlar el tamaño del botón */
+}
+
+
+
+#usersTablaUsuarios {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#usersTablaUsuarios th, #usersTablaUsuarios td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#usersTablaUsuarios th {
+    background-color: #f2f2f2;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    padding: 10px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.pagination span {
+    margin: 0 10px;
+}

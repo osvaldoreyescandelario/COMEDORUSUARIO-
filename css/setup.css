@@ -1,0 +1,121 @@
+/* Estilos para el diálogo modal */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.STPmodal {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); /* Fondo oscuro con opacidad */
+}
+
+.STPmodal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% desde la parte superior y centrado */
+    padding: 0; /* Sin padding para ajustar el tamaño al contenido */
+    border: 1px solid #888;
+    width: fit-content; /* Ajusta el ancho del diálogo al contenido */
+    max-width: 600px; /* Máximo ancho del diálogo */
+    box-sizing: border-box;
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+.STPmodal-header {
+    background-color: #003366; /* Azul oscuro */
+    color: white; /* Texto blanco */
+    padding: 10px;
+    display: flex;
+    justify-content: center; /* Centra el título horizontalmente */
+    align-items: center;
+    border-radius: 10px 10px 0 0; /* Bordes redondeados en la parte superior */
+    position: relative;
+    width: 100%; /* Asegura que el encabezado cubra todo el ancho del diálogo */
+    box-sizing: border-box; /* Incluye el padding en el ancho total */
+}
+
+/* Ocultar el botón de cierre (X) en el encabezado del diálogo */
+.STPmodal-header .STPclose-button {
+    display: none; /* Oculta el botón de cierre */
+}
+
+.STPmodal-body {
+    padding: 20px;
+}
+
+.STPdate-range {
+    margin-bottom: 15px;
+}
+
+.STPdate-range label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.STPdate-range-container {
+    display: flex;
+    gap: 10px;
+}
+
+.STPdate-range input {
+    width: 43%; /* Reducido el ancho de los inputs */
+}
+
+.STPinfo-section {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.STPinfo-section label {
+    margin-bottom: 5px;
+}
+
+.STPinfo-section textarea {
+    width: 225px; /* Ajuste del ancho del textarea */
+    height: 50px; /* Ajusta la altura del textarea según sea necesario */
+    resize: vertical; /* Permite cambiar el tamaño verticalmente */
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.STPcheckbox-container {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.STPcheckbox-container input[type="checkbox"] {
+    margin-right: 10px; /* Espacio entre el checkbox y la etiqueta */
+}
+
+.STPcheckbox-label {
+    margin-bottom: 0; /* Ajusta el margen para alinear con el checkbox */
+}
+
+.STPmodal-footer {
+    text-align: center; /* Centra los botones horizontalmente */
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    border-radius: 0 0 10px 10px; /* Bordes redondeados en la parte inferior */
+}
+
+.STPmodal-footer button {
+    margin: 0 10px; /* Margen entre los botones */
+    background-color: #003366; /* Fondo azul oscuro */
+    color: white; /* Texto blanco */
+    border: none;
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#STPsaveButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

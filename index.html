@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <!-- Incluye jQuery antes de jQuery UI -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Incluye jQuery UI CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+  <!-- Incluye jQuery UI JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.9/jspdf.plugin.autotable.min.js"></script> -->
+
+  <!-- Incluir la librería jsPDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.20/jspdf.plugin.autotable.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+
+  <title>Reservas de Desayunos y Almuerzos</title>
+  <link rel="stylesheet" href="/css/setup.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/loginModal.css">
+  <link rel="stylesheet" href="/css/repstyles.css">
+
+  
+  <link rel="stylesheet" href="/css/menu.css">
+</head>
+<body>
+  <header>
+    <div class="grid-container">
+      <div class="logo-container">
+        <img src="/img/logo.png" alt="Logo" class="logo">
+      </div>
+      <div class="title-container">
+        <h1>RESERVAS - COMEDOR</h1>
+      </div>
+      <div class="login-container">
+        <button class="login-btn">Iniciar Sesión</button>
+      </div>
+      <div class="buttons-container">
+        <div class="left-buttons">
+          <button id="openBreakfastModalBtn" class="open-calendar-btn">Desayunos</button>
+          <button id="openLunchModalBtn" class="open-calendar-btn">Almuerzos</button>
+          <button id="consumptionBtn" class="open-calendar-btn">Consumos</button>
+        </div>
+        <div class="year-selector">
+          <label for="yearSpinbox">Año:</label>
+          <input type="number" id="yearSpinbox" min="" max="" value="">
+          <img src="/img/setup24.png" alt="Configuración" id="setupIcon" class="setup-icon">
+        </div>
+        <div class="right-buttons">
+          <button id="usersBtn" class="open-calendar-btn">Usuarios</button>
+          <button id="reportBtn" class="open-calendar-btn">Reporte</button>
+          <button id="menuBtn" class="open-calendar-btn">Menú</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div id="calendarModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modalTitle">Reservas de desayunos</h2>
+      </div>
+      <div class="modal-body">
+        <div id="calendar"></div>
+      </div>
+      <div class="modal-footer">
+        <button id="saveBtn" class="modal-btn disabled" disabled>Guardar</button>
+        <button id="closeModalBtn" class="modal-btn">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="loginModal" class="modal login-modal">
+    <div class="login-content">
+      <div class="modal-header">
+        <h2>Iniciar Sesión</h2>
+      </div>
+      <div class="modal-body">
+        <form id="loginForm">
+          <input type="number" id="solapin" name="solapin" class="login-input" placeholder="Solapín" required>
+          <input type="password" id="password" name="password" class="login-input" placeholder="Contraseña" required>
+          <div>
+            <input type="checkbox" id="showPassword"> Mostrar contraseña
+          </div>
+          <div id="passwordError" style="color: red; display: none;">La contraseña no es lo suficientemente robusta</div>
+          <div class="modal-footer">
+            <button id="loginModalBtn" type="button" class="modal-btn">Entrar</button>
+            <button type="button" id="closeLoginModalBtn" class="modal-btn">Cerrar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+<!-- Diálogo Modal de Usuarios -->
+<div id="usersModal" class="users-modal">
+  <div class="users-modal-content">
+      <div class="users-modal-titulo">
+          <h2>Usuarios</h2>
+          <span class="users-cerrar" style="cursor:pointer;">&times;</span>
+      </div>
+      <div class="users-modal-body">
+        <div class="users-input-container">
+          <input type="text" id="usersSolapin" class="users-input-solapin" placeholder="Solapín">
+          <input type="text" id="usersNombre" class="users-input-nombre" placeholder="Nombre">
+          <input type="password" id="usersContrasena" class="users-input-contrasena" placeholder="Contraseña">
+      
+          <select id="usersRol" class="users-input-rol">
+              <option value="user">User</option>
+              <option value="admin">Admin</option>
+          </select>
+      
+          <div class="checkbox-container">
+              <label for="usersActivo">Activo</label>
+              <input type="checkbox" id="usersActivo">
+          </div>
+      
+          <!-- Nuevos botones -->
+          <div class="usersbutton-container">
+              <button id="btnExcel">Excel</button>
+              <button id="btnModificar">Modificar</button>
+              <button id="btnCerrar">Cerrar</button>
+          </div>
+      </div>
+      
+      
+      
+          <table id="usersTablaUsuarios">
+              <thead>
+                  <tr>
+                      <th>Solapín</th>
+                      <th>Nombre</th>
+                      <th>Contraseña</th>
+                      <th>Rol</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <!-- Aquí se llenarán los usuarios desde la base de datos -->
+              </tbody>
+          </table>
+          <div id="pagination" class="pagination">
+              <button id="prevPage" disabled>Anterior</button>
+              <span id="pageInfo"></span>
+              <button id="nextPage">Siguiente</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Modal de Menú -->
+<div id="Menumodal" class="Menumodal">
+  <div class="Menumodal-content">
+      <div class="Menumodal-header">
+          <h2>Costo del Menú</h2>
+          
+      </div>
+      <div class="Menumodal-body">
+          <div class="Menucontrols-container">
+              <label for="MenumonthSelect">Mes:</label>
+              <select id="MenumonthSelect">
+                  <option value="0">Enero</option>
+                  <option value="1">Febrero</option>
+                  <option value="2">Marzo</option>
+                  <option value="3">Abril</option>
+                  <option value="4">Mayo</option>
+                  <option value="5">Junio</option>
+                  <option value="6">Julio</option>
+                  <option value="7">Agosto</option>
+                  <option value="8">Septiembre</option>
+                  <option value="9">Octubre</option>
+                  <option value="10">Noviembre</option>
+                  <option value="11">Diciembre</option>
+              </select>
+              <img src="/img/leyenda.png" alt="Leyenda" class="leyenda-img"> <!-- Clase para la imagen -->
+              <div class="Menubutton-container">
+                  <button id="MenusaveButton" disabled>Salvar</button>
+                  <button id="MenucloseButton">Cerrar</button>
+              </div>
+          </div>
+
+          <table id="menuTable">
+              <thead>
+                  <tr>
+                      <th>Día</th>
+                      <th colspan="3">Costo Desayuno</th>
+                      <th colspan="3">Costo Almuerzo</th>
+                  </tr>
+                  <tr>
+                      <th></th>
+                      <th>Real</th>
+                      <th>Aplicable</th>
+                      <th>Extra</th>
+                      <th>Real</th>
+                      <th>Aplicable</th>
+                      <th>Extra</th>
+                  </tr>
+              </thead>
+              <tbody id="MenutableBody">
+                  <!-- Las filas se generarán aquí -->
+              </tbody>
+          </table>
+
+          <div class="Menupagination">
+              <button id="MenuprevPage">Anterior</button>
+              <button id="MenunextPage">Siguiente</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Modal para Reporte -->
+<div id="rep-dialog" title="Reservaciones" style="display:none;">
+  <div class="rep-modal-content">
+      <p>Seleccione un rango de fechas:</p>
+      <div class="rep-datepickers">
+          <input type="text" id="rep-startDate" placeholder="Fecha de inicio">
+          <input type="text" id="rep-endDate" placeholder="Fecha de fin">
+      </div>
+
+      <!-- Primer grupo de radio buttons -->
+      <div class="rep-radio-group">
+          <p class="rep-radio-label">Ordenar por:</p>
+          <div class="rep-radio-options">
+              <input type="radio" id="rep-solapin" name="rep-order" value="solapin">
+              <label for="rep-solapin">Solapin</label>
+              <input type="radio" id="rep-fecha" name="rep-order" value="fecha">
+              <label for="rep-fecha">Fecha</label>
+          </div>
+      </div>
+
+      <!-- Nuevo grupo de radio buttons -->
+      <div class="meal-select-container">
+          <p class="meal-select-label">Seleccionar comida:</p>
+          <div class="meal-select-options">
+              <input type="radio" id="rep-desayuno" name="mealType" value="desayuno">
+              <label for="rep-desayuno">Desayuno</label>
+              <input type="radio" id="rep-almuerzo" name="mealType" value="almuerzo">
+              <label for="rep-almuerzo">Almuerzo</label>
+          </div>
+      </div>
+
+      <div class="rep-button-group">
+          <button id="rep-exportExcel">Excel</button>
+          <button id="rep-exportPDF">PDF</button>
+          <button id="rep-closeDialog">Cerrar</button>
+      </div>
+  </div>
+</div>
+
+<!-- Diálogo Modal Configuracion -->
+<div id="STPconfigModal" class="STPmodal">
+  <div class="STPmodal-content">
+    <div class="STPmodal-header">
+      <span class="STPclose-button">&times;</span>
+      <h2>Configuración</h2>
+    </div>
+    <div class="STPmodal-body">
+      <div class="STPdate-range">
+        <label for="STPstartDate">Rango de fechas a bloquear:</label>
+        <div class="STPdate-range-container">
+          <input type="date" id="STPstartDate" class="STPdatepicker">
+          <input type="date" id="STPendDate" class="STPdatepicker">
+        </div>
+      </div>
+      <div class="STPinfo-section">
+        <label for="STPinfoText">Información:</label>
+        <textarea id="STPinfoText" maxlength="255"></textarea>
+        <div class="STPcheckbox-container">
+          <input type="checkbox" id="STPactivateCheckbox">
+          <label for="STPactivateCheckbox" class="STPcheckbox-label">Activar:</label>
+        </div>
+      </div>
+    </div>
+    <div class="STPmodal-footer">
+      <button id="STPsaveButton" disabled>Salvar</button>
+      <button id="STPcloseButton">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+  <footer style="display: none;">
+    <div class="marquee">
+        <span>Esta es una noticia importante que se desplazará de izquierda a derecha.</span>
+    </div>
+  </footer>
+
+  <script src="/js/config.js"></script>
+  <script src="/js/script.js"></script>
+  
+  <script src="/js/loginModal.js"></script>
+  <link rel="stylesheet" href="/css/users.css"> <!-- Incluir el CSS del modal de usuarios -->
+  <script src="/js/users.js"></script>
+  <script src="/js/menu.js"></script>
+  <script src="/js/repscript.js"></script>
+</body>
+</html>

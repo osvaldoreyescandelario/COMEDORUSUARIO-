@@ -1,0 +1,80 @@
+.modal.login-modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.login-content {
+  background-color: #fefefe;
+  margin: 10% auto; /* Centrado vertical */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 25%; /* Ancho del modal ajustado al 25% del tamaño original */
+  max-width: 200px; /* Ancho máximo del modal reducido */
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal-header {
+  background-color: #ffffff;
+  color: #002c5a;
+  padding: 10px;
+  text-align: center;
+  width: 100%; /* Asegurar que el encabezado ocupe todo el ancho */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.modal-body {
+  padding: 10px;
+  width: 100%; /* Asegurar que el cuerpo ocupe todo el ancho */
+}
+
+.modal-footer {
+  padding: 10px;
+  text-align: center;
+  width: 100%; /* Asegurar que el pie ocupe todo el ancho */
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  display: flex;
+  justify-content: space-between; /* Botones alineados uno al lado del otro */
+}
+
+.modal-btn {
+  background-color: #002c5a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.modal-btn:hover {
+  background-color: #0047ab;
+}
+
+.login-input {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+#showPassword {
+  margin-top: 5px;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
