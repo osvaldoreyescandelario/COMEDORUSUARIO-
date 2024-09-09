@@ -1,5 +1,5 @@
 var config = {
-    apiUrl: 'http://localhost:3000/api'
+    apiUrl: 'https://8d37-149-40-62-17.ngrok-free.app/api'
 };
 
 // Dias festivos, feriados o cualquier otro dia  que no se trabaje 
