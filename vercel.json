@@ -1,0 +1,11 @@
+{
+    "version": 2,
+    "builds": [
+      { "src": "COMEDORCOBRO/package.json", "use": "@vercel/static-build", "config": { "distDir": "build" } },
+      { "src": "COMEDORUSUARIO/package.json", "use": "@vercel/static-build", "config": { "distDir": "build" } }
+    ],
+    "routes": [
+      { "src": "/(.*)", "dest": "COMEDORCOBRO/build/$1" }
+    ]
+  }
+  
