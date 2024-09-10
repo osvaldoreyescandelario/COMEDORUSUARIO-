@@ -4,6 +4,7 @@
     { "src": "COMEDORUSUARIO/package.json", "use": "@vercel/node" }
   ],
   "routes": [
+    { "src": "/api/(.*)", "dest": "BACKEND/$1" },
     { "src": "/(.*)", "dest": "COMEDORUSUARIO/build/$1" }
   ]
 }
