@@ -1,10 +1,9 @@
 {
   "version": 2,
   "builds": [
-    { "src": "COMEDORUSUARIO/package.json", "use": "@vercel/node" }
+    { "src": "COMEDORUSUARIO/package.json", "use": "@vercel/static-build", "config": { "distDir": "build" }  }
   ],
   "routes": [
-    { "src": "/api/(.*)", "dest": "BACKEND/$1" },
     { "src": "/(.*)", "dest": "COMEDORUSUARIO/build/$1" }
   ]
 }
